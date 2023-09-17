@@ -17,6 +17,10 @@
     }
 }
 
+a:hover {
+    background-color: #888;
+}
+
 #story1 {
     display: none;
 }
