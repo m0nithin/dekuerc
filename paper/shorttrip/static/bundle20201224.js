@@ -1,4 +1,6 @@
-
+const story = document.getElementById("story")
+const story1 = document.getElementById("story1")
+const story2 = document.getElementById("story2")
 ! function (e) {
     function t(n) {
         if (i[n]) return i[n].exports;
@@ -64,6 +66,7 @@
         j = n(G),
         H = i(24),
         W = i(23);
+
     window.$ = h.default;
     var X, q = 0,
         Y = new d.default.Plane(new d.default.Vector3(0, 0, 1)),
@@ -249,6 +252,38 @@
                     //codehere
                     b.rotation.z = V.time * -.25, null === X || void 0 === X ? X = Me("water") : X.uniforms.offsetRepeat.value.x += .01 * e, ge.hasOwnProperty("torque") && (ge.rotation.z += ge.torque * e, ge.hasOwnProperty("acceleration") || (ge.acceleration = 0), ge.acceleration = 50 * -ge.rotation.z, ge.torque += ge.acceleration * e, ge.torque -= ge.torque * e * 2, ge.rotation.z += e * ge.torque, ge.rotation.z = C.default.clamp(ge.rotation.z, -1, 1)), Z ? (A.position.x < 420 && (Z = !1, Q = 6), Q < 0 && (Z = !1), Q -= e, K.setAlpha(C.default.moveTowards(K.alpha, 1, e))) : (A.position.x > 420 && Q > 0 ? Z = !0 : Q < 0 && A.position.x < 420 && (Q = 6), K.setAlpha(C.default.moveTowards(K.alpha, 0, e))), ie && ne.position.copy(ze(pe)), te ? A.position.x > -8.5 && (te = !1, (0, h.default)("#controls").fadeOut(3000)) : !te && A.position.x < -8.5 && (te = !0, (0, h.default)("#controls").fadeIn("slow")), pe.update(), he.render(ue, pe)
                 }
+
+                //update here
+                // console.log(A.tram.position.x)
+                switch (true) {
+                    case (A.position.x >= -1.5 && A.position.x <= 1):
+                        story.style.display = "block";
+                        break;
+
+                    case (A.position.x > 1.4):
+                        story.style.display = "none";
+                        break;
+                }
+
+                switch (true) {
+                    case (A.tram.position.x >= 10.5 && A.tram.position.x <= 15):
+                        story1.style.display = "block";
+                        break;
+
+                    case (A.tram.position.x > 15.4):
+                        story1.style.display = "none";
+                        break;
+                }
+                switch (true) {
+                    case (A.tram.position.x >= 31.5 && A.tram.position.x <= 37):
+                        story2.style.display = "block";
+                        break;
+
+                    case (A.tram.position.x > 37.4):
+                        story2.style.display = "none";
+                        break;
+                }
+
             },
             _e = function () {
                 return ae ? (window.devicePixelRatio || 1) / 2 : window.devicePixelRatio || 1
@@ -15500,7 +15535,7 @@
                 key: "update",
                 value: function () {
                     var e = this,
-                        i = this.app.time.deltaTime,
+                        i = this.app.time.deltaTime * 2,
                         n = this.app.input.axis.x,
                         r = void 0,
                         a = void 0;
@@ -17980,7 +18015,7 @@
                             if (e[i] === t) return i;
                         return -1
                     },
-                    te = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+                    te = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped|story",
                     ie = "[\\x20\\t\\r\\n\\f]",
                     ne = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
                     re = "\\[" + ie + "*(" + ne + ")(?:" + ie + "*([*^$|!~]?=)" + ie + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + ne + "))|)" + ie + "*\\]",
